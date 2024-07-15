@@ -9,18 +9,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #004085;
-            --accent-color: #17a2b8;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --bg-color: #1a1a1a;
+            --text-color: #ecf0f1;
+            --card-bg: #2c3e50;
         }
         body {
             font-family: 'Roboto', sans-serif;
-            color: var(--dark-color);
+            color: var(--text-color);
+            background-color: var(--bg-color);
         }
         .navbar {
-            background-color: var(--primary-color);
+            background-color: var(--dark-color);
         }
         .navbar-brand, .nav-link {
             color: var(--light-color) !important;
@@ -35,8 +39,8 @@
             border-color: var(--accent-color);
         }
         .btn-primary:hover {
-            background-color: #138496;
-            border-color: #117a8b;
+            background-color: #c0392b;
+            border-color: #c0392b;
         }
         .feature-icon {
             font-size: 2.5rem;
@@ -50,17 +54,25 @@
         }
         .card {
             border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            background-color: var(--card-bg);
+            color: var(--text-color);
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
         footer {
-            background-color: var(--primary-color);
+            background-color: var(--dark-color);
             color: var(--light-color);
             padding: 30px 0;
+        }
+        .bg-light {
+            background-color: var(--dark-color) !important;
+        }
+        .text-muted {
+            color: #95a5a6 !important;
         }
     </style>
 </head>
@@ -134,24 +146,24 @@
             </div>
         </section>
 
-        <section id="benefits" class="py-5 bg-light">
+        <section id="benefits" class="py-5">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Benefits</h2>
                 <div class="row">
                     <div class="col-md-6 mb-4" data-aos="fade-up">
-                        <h5><i class="bi bi-clock text-primary me-2"></i> Save Time</h5>
+                        <h5><i class="bi bi-clock text-accent me-2"></i> Save Time</h5>
                         <p>Reduce hours spent on legal research, drafting initial responses, and creating contracts.</p>
                     </div>
                     <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <h5><i class="bi bi-check-circle text-primary me-2"></i> Improve Accuracy</h5>
+                        <h5><i class="bi bi-check-circle text-accent me-2"></i> Improve Accuracy</h5>
                         <p>Ensure consistency and reduce errors with AI-generated content based on your own knowledge base.</p>
                     </div>
                     <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <h5><i class="bi bi-arrows-angle-contract text-primary me-2"></i> Enhance Consistency</h5>
+                        <h5><i class="bi bi-arrows-angle-contract text-accent me-2"></i> Enhance Consistency</h5>
                         <p>Standardize responses and contract language across your organization.</p>
                     </div>
                     <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <h5><i class="bi bi-arrow-repeat text-primary me-2"></i> Stay Current</h5>
+                        <h5><i class="bi bi-arrow-repeat text-accent me-2"></i> Stay Current</h5>
                         <p>Access the most up-to-date information from your continuously updated knowledge base.</p>
                     </div>
                 </div>
@@ -210,24 +222,24 @@
             </div>
         </section>
 
-        <section id="security" class="py-5 bg-light">
+        <section id="security" class="py-5">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Security and Compliance</h2>
                 <div class="row">
                     <div class="col-md-6 mb-4" data-aos="fade-up">
-                        <h5><i class="bi bi-shield-check text-primary me-2"></i> Data Protection</h5>
+                        <h5><i class="bi bi-shield-check text-accent me-2"></i> Data Protection</h5>
                         <p>AES-256 encryption for data at rest, TLS 1.3 for data in transit, and multi-factor authentication for all user accounts.</p>
                     </div>
                     <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <h5><i class="bi bi-award text-primary me-2"></i> Compliance Standards</h5>
+                        <h5><i class="bi bi-award text-accent me-2"></i> Compliance Standards</h5>
                         <p>GDPR compliant and ISO 27001 certified to ensure the highest standards of data security and privacy.</p>
                     </div>
                     <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <h5><i class="bi bi-clock-history text-primary me-2"></i> Regular Security Audits</h5>
+                        <h5><i class="bi bi-clock-history text-accent me-2"></i> Regular Security Audits</h5>
                         <p>Annual third-party penetration testing and continuous vulnerability assessments to maintain robust security.</p>
                     </div>
                     <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <h5><i class="bi bi-people text-primary me-2"></i> Client Controls</h5>
+                        <h5><i class="bi bi-people text-accent me-2"></i> Client Controls</h5>
                         <p>Detailed audit logs and client-managed user permissions to give you full control over your data.</p>
                     </div>
                 </div>
