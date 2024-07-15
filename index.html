@@ -30,6 +30,12 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 500;
+            text-decoration: none;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: black;
         }
         h1 {
             font-weight: 500;
@@ -98,12 +104,11 @@
 <body>
     <div class="container">
         <header class="d-flex justify-content-between align-items-center py-3">
-            <div class="logo">DataTalk</div>
+            <div class="logo">
+                <a href="/">DataTalk</a>
+            </div>
             <nav>
-                <a class="ms-3 text-dark text-decoration-none" href="#about">About</a>
-                <a class="ms-3 text-dark text-decoration-none" href="#product">Product</a>
-                <a class="ms-3 text-dark text-decoration-none" href="#values">Values</a>
-                <a class="ms-3 text-dark text-decoration-none" href="#clients">Clients</a>
+                <a class="ms-3 text-dark text-decoration-none" href="/company.html">Company</a>
                 <a class="ms-3 text-dark text-decoration-none" href="#contact">Contact</a>
             </nav>
         </header>
@@ -114,63 +119,7 @@
             <a href="mailto:mail@datatalk.be" class="cta-button">Request a Demo</a>
         </section>
         
-        <section id="about" class="section">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2>The DataTalk Story</h2>
-                    <p>DataTalk was founded by Thomas van Turnhout and Koen van Eijk, two lifelong friends with a shared passion for innovation. After successful corporate careers and the establishment of their first venture, Oakwood Technologies, they embarked on a new journey to transform the legal technology landscape.</p>
-                    <p>With their groundbreaking Smart Robotic Process Automation software suite, Automagica, and other solutions, Thomas and Koen served high-profile companies across various industries. Their success led to the acquisition of Oakwood Technologies by Netcall plc, where they continued to drive innovation for another three years.</p>
-                </div>
-                <div class="col-md-6 text-center">
-                    <img src="./media/founders_0.jpg" alt="Thomas van Turnhout and Koen van Eijk, founders of DataTalk" class="img-fluid rounded founders-image">
-                </div>
-            </div>
-        </section>
-        
-        <section id="product" class="section bg-light">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center">
-                    <img src="./media/index.svg" alt="DataTalk's AI-powered legal technology" class="img-fluid rounded smaller-image">
-                </div>
-                <div class="col-md-6">
-                    <h2>DataTalk: The AI-Powered Legal Assistant</h2>
-                    <p>DataTalk is an advanced AI-powered platform that revolutionizes legal research and document drafting. Our cutting-edge technology seamlessly integrates with your existing workflows, enabling swift adoption and immediate productivity gains. Unlike competitors that require costly custom integrations, DataTalk offers a full-service, end-to-end solution for exceptional legal assistance.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="values" class="section">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2>Our Values and Culture</h2>
-                    <p>At DataTalk, we are committed to innovation, excellence, and ethical AI use in the legal field. We believe in sharing our journey and insights through our blog, fostering a culture of collaboration and knowledge-sharing. Our team is driven by a passion for transforming legal practices and a dedication to delivering cutting-edge solutions that make a real difference in legal professionals' lives.</p>
-                </div>
-                <div class="col-md-6 text-center">
-                    <img src="./media/scales.svg" alt="Scales of justice" class="img-fluid rounded smaller-image">
-                </div>
-            </div>
-        </section>
-        
-        <section id="clients" class="section bg-light">
-            <div class="container">
-                <h2 class="text-center">Trusted by Industry Leaders</h2>
-                <p class="text-center">Although DataTalk is a young company, our founders bring a wealth of experience and a proven track record of success. In their previous venture, they had the privilege of serving renowned global brands and esteemed customers across various industries.</p>
-                <div class="client-logos">
-                    <img src="/media/adidas.svg" alt="Adidas logo" class="img-fluid">
-                    <img src="/media/kpmg.svg" alt="KPMG logo" class="img-fluid">
-                    <img src="/media/livenation.svg" alt="LiveNation logo" class="img-fluid">
-                    <img src="/media/az_maria_middelares.svg" alt="Maria Middelares hospital logo" class="img-fluid">
-                    <img src="/media/vrt.svg" alt="VRT" class="img-fluid">
-                    <img src="/media/google.svg" alt="Google" class="img-fluid">
-                </div>
-            </div>
-        </section>
-        
-        <section class="section text-center">
-            <h2>Ready to Transform Your Legal Practice?</h2>
-            <p>Experience the power of AI-driven legal assistance firsthand.</p>
-            <a href="mailto:mail@datatalk.be" class="cta-button">Request a Demo</a>
-        </section>
+
         
         <footer id="contact">
             <div class="contact-info">
