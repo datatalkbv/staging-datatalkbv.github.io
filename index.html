@@ -118,24 +118,47 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 0; /* Changed from 0 to -1 */
+            z-index: 0;
         }
-
-        /* New styles */
-        header {
+        header, .content, footer {
             position: relative;
             z-index: 1;
         }
-
-        .content {
-            position: relative;
-            z-index: 1;
+        .solutions {
+            padding: 4rem 0;
+            background-color: #f8f9fa;
         }
-
-        footer {
-            position: relative;
-            z-index: 1;
+        .solution-item {
+            margin-bottom: 2rem;
         }
+        .solution-item h3 {
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .solutions {
+    padding: 4rem 0;
+    background-color: #ffffff00;
+  }
+  .solution-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  .solution-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+  }
+  .solution-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #000;
+  }
+  .solution-item p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0;
+  }
     </style>
 </head>
 <body>
@@ -158,6 +181,29 @@
                 <p>Revolutionize your legal practice with cutting-edge AI technology. DataTalk offers intelligent solutions for legal research and document drafting.</p>
                 <a href="mailto:mail@datatalk.be" class="cta-button">Request a Demo</a>
             </section>
+
+            <section class="solutions">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-3 solution-item">
+                      <h3>Research</h3>
+                      <p>Use our AI to search internal databases of contracts, legislation, and case law for informed decision-making.</p>
+                    </div>
+                    <div class="col-md-3 solution-item">
+                      <h3>Draft</h3>
+                      <p>Create documents efficiently with AI-assisted clause extraction, indexing, and a comprehensive database.</p>
+                    </div>
+                    <div class="col-md-3 solution-item">
+                      <h3>Review</h3>
+                      <p>Create playbooks for consistent, thorough contract reviews and negotiations.</p>
+                    </div>
+                    <div class="col-md-3 solution-item">
+                      <h3>Onboarding</h3>
+                      <p>Optimize client intake with our solution for efficient information gathering and relationship building.</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
         </div>
 
         <footer id="contact">
@@ -175,33 +221,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-particlesJS('particles-js', {
-    particles: {
-        number: { value: 30, density: { enable: true, value_area: 800 } },
-        color: { value: '#000000' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.7, random: false },
-        size: { value: 2, random: true },
-        line_linked: { enable: true, distance: 150, color: '#000000', opacity: 0.7, width: 0.5 },
-        move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
-    },
-    interactivity: {
-        detect_on: 'canvas',
-        events: { 
-            onhover: { enable: false },
-            onclick: { enable: false },
-            resize: true 
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 30, density: { enable: true, value_area: 800 } },
+            color: { value: '#000000' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.7, random: false },
+            size: { value: 2, random: true },
+            line_linked: { enable: true, distance: 150, color: '#000000', opacity: 0.7, width: 0.5 },
+            move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
         },
-        modes: { 
-            grab: { distance: 400, line_linked: { opacity: 1 } },
-            bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-            repulse: { distance: 200, duration: 0.4 },
-            push: { particles_nb: 4 },
-            remove: { particles_nb: 2 }
-        }
-    },
-    retina_detect: true
-});
+        interactivity: {
+            detect_on: 'canvas',
+            events: { 
+                onhover: { enable: false },
+                onclick: { enable: false },
+                resize: true 
+            },
+            modes: { 
+                grab: { distance: 400, line_linked: { opacity: 1 } },
+                bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                repulse: { distance: 200, duration: 0.4 },
+                push: { particles_nb: 4 },
+                remove: { particles_nb: 2 }
+            }
+        },
+        retina_detect: true
+    });
     </script>
 
 </body>
