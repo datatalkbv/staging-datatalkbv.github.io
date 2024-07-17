@@ -118,7 +118,23 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 0;
+            z-index: 0; /* Changed from 0 to -1 */
+        }
+
+        /* New styles */
+        header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
