@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Clause Assistant - Google Docs Demo</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        #docs-interface {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #docs-toolbar {
+            background-color: #f1f3f4;
+            padding: 5px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #docs-toolbar-left {
+            display: flex;
+            align-items: center;
+        }
+        #docs-toolbar-right {
+            display: flex;
+            align-items: center;
+        }
+        #docs-toolbar img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        #docs-menu {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 5px;
+            display: flex;
+        }
+        .menu-item {
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #202124;
+        }
+        #formatting-toolbar {
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .toolbar-item {
+            padding: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #5f6368;
+        }
+        .toolbar-item:hover {
+            background-color: #f1f3f4;
+            border-radius: 4px;
+        }
+        #docs-content {
+            display: flex;
+            flex: 1;
+        }
+        #docs-document {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px;
+        }
+        #extension-sidebar {
+            width: 300px;
+            background-color: #f1f3f4;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #e0e0e0;
+        }
+        #search-input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+        }
+        #search-results {
+            flex: 1;
+            overflow-y: auto;
+        }
+        .clause {
+            background-color: #fff;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .clause:hover {
+            background-color: #f8f9fa;
+        }
+        .clause-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+        .clause-actions button {
+            background-color: #fff;
+            border: 1px solid #dadce0;
+            padding: 5px 8px;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .clause-actions button:hover {
+            background-color: #f1f3f4;
+        }
+        .clause-reference {
+            font-size: 11px;
+            color: #5f6368;
+            margin-top: 5px;
+        }
+        .enhance-btn, .translate-btn {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            font-size: 13px;
+            margin-right: 5px;
+            border-radius: 4px;
+        }
+        .enhance-btn:hover, .translate-btn:hover {
+            background-color: #185abc;
+        }
+        .magic-wand, .translate-icon {
+            margin-right: 5px;
+        }
+        #status-bar {
+            background-color: #f1f3f4;
+            border-top: 1px solid #e0e0e0;
+            padding: 5px 10px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            color: #5f6368;
+        }
+        .feedback-container {
+            display: none;
+            margin-top: 10px;
+        }
+        .feedback-input {
+            width: calc(100% - 50px);
+            padding: 6px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+        }
+        .feedback-submit {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .share-button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .share-button:hover {
+            background-color: #185abc;
+        }
+    </style>
+</head>
+<body>
+    <div id="docs-interface">
+        <div id="docs-toolbar">
+            <div id="docs-toolbar-left">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Google_Docs_logo_%282014-2020%29.svg/1481px-Google_Docs_logo_%282014-2020%29.svg.png" alt="Google Docs logo">
+                <span>Untitled document</span>
+                <span class="icon">⭐</span>
+            </div>
+            <div id="docs-toolbar-right">
+                <span class="icon">💬</span>
+                <span class="icon">🎥</span>
+                <button class="share-button">Share</button>
+                <span class="icon">👤</span>
+            </div>
+        </div>
+        <div id="docs-menu">
+            <div class="menu-item">File</div>
+            <div class="menu-item">Edit</div>
+            <div class="menu-item">View</div>
+            <div class="menu-item">Insert</div>
+            <div class="menu-item">Format</div>
+            <div class="menu-item">Tools</div>
+            <div class="menu-item">Extensions</div>
+            <div class="menu-item">Help</div>
+        </div>
+        <div id="formatting-toolbar">
+            <div class="toolbar-item">
+                <span class="icon">📄</span> 100%
+            </div>
+            <div class="toolbar-item">
+                <span class="icon">🔤</span> Normal text
+            </div>
+            <div class="toolbar-item">
+                <span class="icon">🖋</span> Arial
+            </div>
+            <div class="toolbar-item">11</div>
+            <div class="toolbar-item"><strong>B</strong></div>
+            <div class="toolbar-item"><i>I</i></div>
+            <div class="toolbar-item"><u>U</u></div>
+            <div class="toolbar-item"><span class="icon">🎨</span></div>
+            <div class="toolbar-item"><span class="icon">🔗</span></div>
+            <div class="toolbar-item"><span class="icon">💬</span></div>
+            <div class="toolbar-item"><span class="icon">📝</span></div>
+        </div>
+        <div id="docs-content">
+            <div id="docs-document" contenteditable="true">
+                <p>Start typing your document here...</p>
+            </div>
+            <div id="extension-sidebar">
+                <h2>Legal Clause Assistant</h2>
+                <input type="text" id="search-input" placeholder="Search for clauses...">
+                <div id="search-results"></div>
+            </div>
+        </div>
+        <div id="status-bar">
+            <span>Last edit was 2 minutes ago</span>
+            <span>Editing</span>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        const docsDocument = document.getElementById('docs-document');
+
+        const clauseDatabase = {
+            'non-solicitation': [
+                "The Employee agrees that for a period of two (2) years following the termination of their employment, they will not directly or indirectly solicit, induce, recruit or encourage any of the Company's employees to leave their employment.",
+                "During the term of this Agreement and for a period of one (1) year thereafter, neither party shall solicit or attempt to solicit, directly or indirectly, any customers, clients, or business partners of the other party."
+            ],
+            'confidentiality': [
+                "The Recipient agrees to keep all Confidential Information strictly confidential and shall not disclose such Confidential Information to any third party without the prior written consent of the Disclosing Party.",
+                "Both parties agree to maintain the confidentiality of all proprietary information exchanged under this agreement and to use such information solely for the purposes of this agreement."
+            ],
+            'termination': [
+                "This Agreement may be terminated by either party upon thirty (30) days written notice to the other party.",
+                "In the event of a material breach of this Agreement, the non-breaching party may terminate this Agreement immediately upon written notice to the breaching party."
+            ]
+        };
+
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            searchResults.innerHTML = '';
+
+            for (const [key, clauses] of Object.entries(clauseDatabase)) {
+                if (key.includes(searchTerm)) {
+                    clauses.forEach((clause, index) => {
+                        const clauseElement = document.createElement('div');
+                        clauseElement.className = 'clause';
+                        clauseElement.innerHTML = `
+                            <div>${clause}</div>
+                            <div class="clause-reference">Source: Standard_Clauses_v2.gdoc</div>
+                            <div class="clause-actions">
+                                <button onclick="openSource()">Open Source</button>
+                                <button onclick="copyClause('${clause}')">Copy</button>
+                                <button onclick="compareWithSelection('${clause}')">Compare</button>
+                            </div>
+                        `;
+                        clauseElement.querySelector('div').addEventListener('click', () => insertClause(clause));
+                        searchResults.appendChild(clauseElement);
+                    });
+                }
+            }
+        });
+
+        function insertClause(clause) {
+            const clauseElement = document.createElement('p');
+            clauseElement.textContent = clause;
+            
+            const buttonContainer = document.createElement('div');
+            
+            const enhanceButton = document.createElement('button');
+            enhanceButton.className = 'enhance-btn';
+            enhanceButton.innerHTML = '<span class="magic-wand">🪄</span> Enhance with AI';
+            enhanceButton.addEventListener('click', () => enhanceClause(clauseElement, buttonContainer));
+
+            const translateButton = document.createElement('button');
+            translateButton.className = 'translate-btn';
+            translateButton.innerHTML = '<span class="translate-icon">🌐</span> Translate';
+            translateButton.addEventListener('click', () => translateClause(clauseElement));
+
+            buttonContainer.appendChild(enhanceButton);
+            buttonContainer.appendChild(translateButton);
+
+            docsDocument.appendChild(clauseElement);
+            docsDocument.appendChild(buttonContainer);
+        }
+
+        function enhanceClause(clauseElement, buttonContainer) {
+            const feedbackContainer = document.createElement('div');
+            feedbackContainer.className = 'feedback-container';
+            feedbackContainer.style.display = 'flex';
+            feedbackContainer.innerHTML = `
+                <input type="text" class="feedback-input" placeholder="Enter feedback...">
+                <button class="feedback-submit">➤</button>
+            `;
+            
+            const submitButton = feedbackContainer.querySelector('.feedback-submit');
+            submitButton.addEventListener('click', () => {
+                const feedback = feedbackContainer.querySelector('.feedback-input').value;
+                if (feedback) {
+                    setTimeout(() => {
+                        clauseElement.style.color = '#1a73e8';
+                        clauseElement.style.fontWeight = 'bold';
+                        alert('Clause enhanced with AI based on feedback: ' + feedback);
+                        feedbackContainer.style.display = 'none';
+                    }, 1000);
+                }
+            });
+
+            buttonContainer.appendChild(feedbackContainer);
+        }
+
+        function translateClause(clauseElement) {
+            setTimeout(() => {
+                alert('Clause translated!');
+            }, 1000);
+        }
+
+        function openSource() {
+            alert('Opening the original Google Doc...');
+        }
+
+        function copyClause(clause) {
+            navigator.clipboard.writeText(clause).then(() => {
+                alert('Clause copied to clipboard!');
+            });
+        }
+
+        function compareWithSelection(clause) {
+            const selection = window.getSelection().toString();
+            if (selection) {
+                alert(`Comparing:\n\nSelected text: ${selection}\n\nClause: ${clause}`);
+            } else {
+                alert('Please select some text in the document to compare.');
+            }
+        }
+    </script>
+</body>
+</html>
