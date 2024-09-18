@@ -180,7 +180,7 @@
                 if (headingMatch) {
                     const level = headingMatch[1].length;
                     const text = headingMatch[2];
-                    const id = text.toLowerCase().replace(/\s+/g, '-');
+                    const id = text.toLowerCase().replace(/^\d+\.\s*/, '').replace(/\s+/g, '-').replace(/[^\w-]/g, '');
                     headings.push({ level, text, id });
                     parsedContent.push({ type: `h${level}`, content: text, id });
                 } else if (line.match(/^(\s*[-*])\s/)) {
