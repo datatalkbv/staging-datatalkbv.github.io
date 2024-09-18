@@ -219,10 +219,18 @@
                 element.scrollIntoView({ behavior: 'smooth' });
                 element.classList.add('highlight');
                 setTimeout(() => element.classList.remove('highlight'), 2000);
+                location.hash = id;
             }
             toggleSidebar();
             updateActiveHeading();
         }
+
+        window.addEventListener('hashchange', function() {
+            const id = location.hash.slice(1);
+            if (id) {
+                handleHeadingClick(id);
+            }
+        });
 
         function renderContent() {
             const mainContent = document.getElementById('main-content');
