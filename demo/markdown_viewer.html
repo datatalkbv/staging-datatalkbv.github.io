@@ -347,7 +347,9 @@
         }
 
         function parseBoldText(text) {
-            return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
         }
 
         function renderTableOfContents() {
