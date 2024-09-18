@@ -162,6 +162,14 @@
             }
         }
 
+        function generateHeadingId(text) {
+            return text.toLowerCase()
+                .replace(/^\d+\.\s*/, '') // Remove leading numbers and periods
+                .replace(/\s+/g, '-')     // Replace spaces with hyphens
+                .replace(/[^\w-]/g, '')   // Remove non-word characters except hyphens
+                .replace(/^-+|-+$/g, ''); // Remove leading and trailing hyphens
+        }
+
         function parseMarkdown(md) {
             if (typeof md !== 'string') {
                 console.error('Invalid markdown input. Expected a string, got:', typeof md);
@@ -180,7 +188,7 @@
                 if (headingMatch) {
                     const level = headingMatch[1].length;
                     const text = headingMatch[2];
-                    const id = text.toLowerCase().replace(/^\d+\.\s*/, '').replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+                    const id = generateHeadingId(text);
                     headings.push({ level, text, id });
                     parsedContent.push({ type: `h${level}`, content: text, id });
                 } else if (line.match(/^(\s*[-*])\s/)) {
@@ -370,6 +378,7 @@
                 div.onclick = () => handleHeadingClick(heading.id);
                 toc.appendChild(div);
             });
+            updateActiveHeading(); // Update the active heading on initial render
         }
 
         function toggleSidebar() {
