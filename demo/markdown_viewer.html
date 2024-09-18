@@ -173,6 +173,7 @@
             parsedContent = [];
             let inTable = false;
             let tableContent = [];
+            let listLevel = 0;
 
             lines.forEach((line, index) => {
                 const headingMatch = line.match(/^(#{1,6})\s+(.+)$/);
@@ -182,8 +183,11 @@
                     const id = text.toLowerCase().replace(/\s+/g, '-');
                     headings.push({ level, text, id });
                     parsedContent.push({ type: `h${level}`, content: text, id });
-                } else if (line.startsWith('- ') || line.startsWith('* ')) {
-                    parsedContent.push({ type: 'li', content: line.slice(2) });
+                } else if (line.match(/^(\s*[-*])\s/)) {
+                    const indent = line.match(/^\s*/)[0].length;
+                    const content = line.trim().slice(2);
+                    const level = Math.floor(indent / 2);
+                    parsedContent.push({ type: 'li', content, level });
                 } else if (line.startsWith('    ') || line.startsWith('\t')) {
                     parsedContent.push({ type: 'code', content: line.trim() });
                 } else if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
@@ -224,6 +228,9 @@
             const mainContent = document.getElementById('main-content');
             mainContent.innerHTML = '';
 
+            let currentList = null;
+            let listStack = [];
+
             parsedContent.forEach((item, index) => {
                 let element;
                 switch (item.type) {
@@ -257,15 +264,28 @@
                         element.innerHTML = parseBoldText(item.content);
                         break;
                     case 'li':
-                        if (!mainContent.lastElementChild || mainContent.lastElementChild.tagName !== 'UL') {
+                        while (listStack.length > item.level) {
+                            listStack.pop();
+                            currentList = listStack[listStack.length - 1] || null;
+                        }
+                        if (!currentList || listStack.length < item.level) {
                             const ul = document.createElement('ul');
                             ul.className = 'list-group list-group-flush mb-3';
-                            mainContent.appendChild(ul);
+                            if (currentList) {
+                                const li = document.createElement('li');
+                                li.className = 'list-group-item';
+                                li.appendChild(ul);
+                                currentList.appendChild(li);
+                            } else {
+                                mainContent.appendChild(ul);
+                            }
+                            currentList = ul;
+                            listStack.push(currentList);
                         }
                         element = document.createElement('li');
                         element.className = 'list-group-item';
                         element.innerHTML = parseBoldText(item.content);
-                        mainContent.lastElementChild.appendChild(element);
+                        currentList.appendChild(element);
                         return;
                     case 'code':
                         element = document.createElement('pre');
@@ -283,6 +303,10 @@
                 }
                 if (element) {
                     mainContent.appendChild(element);
+                }
+                if (item.type !== 'li') {
+                    currentList = null;
+                    listStack = [];
                 }
             });
         }
