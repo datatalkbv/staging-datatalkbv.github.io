@@ -4,7 +4,7 @@
 
 ## 1. Introduction
 
-This End User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and DataTalk BV ("DataTalk", "we", "us", or "our") for the use of our AI-powered legal research, drafting, and review platform ("Service"). By accessing or using our Service, you agree to be bound by the terms of this EULA.
+This End User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and DataTalk BV ("DataTalk", "we", "us", or "our") for the use of our AI-powered platform ("Service"). By accessing or using our Service, you agree to be bound by the terms of this EULA.
 
 ## 2. Grant of License
 
