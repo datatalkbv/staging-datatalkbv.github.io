@@ -4,7 +4,7 @@
 
 ## 1. Introduction
 
-This End User License Agreement ("EULA") is a legally binding contract between you, either an individual or a single entity ("Licensee", "you", or "your"), and DataTalk BV, a company registered in Belgium with its principal place of business at [DataTalk's Address] ("DataTalk", "we", "us", or "our") for the use of our AI-powered legal research, drafting, and review platform ("Service"). By accessing, installing, or using our Service, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions of this EULA.
+This End User License Agreement ("EULA") is a legally binding contract between you, either an individual or a single entity ("Licensee", "you", or "your"), and DataTalk BV, a company registered in Belgium with its principal place of business at Weertersteenweg 5A 3640 Kinrooi ("DataTalk", "we", "us", or "our") for the use of our AI-powered legal research, drafting, and review platform ("Service"). By accessing, installing, or using our Service, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions of this EULA.
 
 ## 2. Definitions
 
