@@ -163,9 +163,12 @@ Except as provided herein, the failure to exercise a right or to require perform
 
 If you have any questions about this EULA, please contact us at:
 
+```
 DataTalk BV
-[Address]
+Weertersteenweg 5A
+3640 Kinrooi
 Email: mail@datatalk.be
 Phone: +32 473 57 62 62
+```
 
 By using the Service, you acknowledge that you have read this EULA, understand it, and agree to be bound by its terms and conditions. If you do not agree to this EULA, you must not access or use the Service.
