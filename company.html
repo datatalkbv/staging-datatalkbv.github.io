@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .founders-image {
@@ -22,11 +30,13 @@
             height: auto;
         }
 
-        body, html {
+        body,
+        html {
             font-family: 'Poppins', sans-serif;
             color: black;
             background-color: white;
         }
+
         .logo {
             font-size: 1.5rem;
             font-weight: 500;
@@ -37,17 +47,21 @@
             text-decoration: none;
             color: black;
         }
+
         h1 {
             font-weight: 500;
         }
+
         h2 {
             font-weight: 400;
         }
+
         .hero {
             text-align: center;
             padding: 4rem 0;
             animation: fadeIn 1s ease-out 0.2s both;
         }
+
         .cta-button {
             display: inline-block;
             background-color: black;
@@ -61,46 +75,57 @@
             font-size: 1.1rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .cta-button:hover {
             background-color: white;
             color: black;
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
+
         .section {
             padding: 4rem 0;
             animation: fadeIn 1s ease-out;
         }
+
         .bg-light {
             background-color: #f8f9fa;
         }
+
         .client-logos {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 2rem;
         }
+
         .client-logos img {
             height: 60px;
             width: auto;
             object-fit: contain;
         }
+
         footer {
             text-align: center;
             padding: 2rem 0;
             border-top: 1px solid #eee;
             animation: fadeIn 0.8s ease-out 0.8s both;
         }
-        .contact-info, .legal-links {
+
+        .contact-info,
+        .legal-links {
             margin-top: 1rem;
         }
-        .contact-info a, .legal-links a {
+
+        .contact-info a,
+        .legal-links a {
             color: black;
             text-decoration: none;
             margin: 0 0.5rem;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header class="d-flex justify-content-between align-items-center py-3">
@@ -112,54 +137,73 @@
                 <a class="ms-3 text-dark text-decoration-none" href="#contact">Contact</a>
             </nav>
         </header>
-        
+
         <section class="hero">
             <h1>Transform Your Legal Practice with DataTalk</h1>
-            <p>Revolutionize your legal practice with cutting-edge AI technology. DataTalk offers intelligent solutions for legal research and document drafting.</p>
+            <p>Revolutionize your legal practice with cutting-edge AI technology. DataTalk offers intelligent solutions
+                for legal research and document drafting.</p>
             <a href="mailto:mail@datatalk.be" class="cta-button">Request a Demo</a>
         </section>
-        
+
         <section id="about" class="section">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h2>The DataTalk Story</h2>
-                    <p>DataTalk was founded by Thomas van Turnhout and Koen van Eijk, two lifelong friends with a shared passion for innovation. After successful corporate careers and the establishment of their first venture, Oakwood Technologies, they embarked on a new journey to transform the legal technology landscape.</p>
-                    <p>With their groundbreaking Smart Robotic Process Automation software suite, Automagica, and other solutions, Thomas and Koen served high-profile companies across various industries. Their success led to the acquisition of Oakwood Technologies by Netcall plc, where they continued to drive innovation for another three years.</p>
+                    <p>DataTalk was founded by Thomas van Turnhout and Koen van Eijk, two lifelong friends with a shared
+                        passion for innovation. After successful corporate careers and the establishment of their first
+                        venture, Oakwood Technologies, they embarked on a new journey to transform the legal technology
+                        landscape.</p>
+                    <p>With their groundbreaking Smart Robotic Process Automation software suite, Automagica, and other
+                        solutions, Thomas and Koen served high-profile companies across various industries. Their
+                        success led to the acquisition of Oakwood Technologies by Netcall plc, where they continued to
+                        drive innovation for another three years.</p>
                 </div>
                 <div class="col-md-6 text-center">
-                    <img src="./media/founders_0.jpg" alt="Thomas van Turnhout and Koen van Eijk, founders of DataTalk" class="img-fluid rounded founders-image">
+                    <img src="./media/founders_0.jpg" alt="Thomas van Turnhout and Koen van Eijk, founders of DataTalk"
+                        class="img-fluid rounded founders-image">
                 </div>
             </div>
         </section>
-        
+
         <section id="product" class="section bg-light">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center">
-                    <img src="./media/index.svg" alt="DataTalk's AI-powered legal technology" class="img-fluid rounded smaller-image">
+                    <img src="./media/index.svg" alt="DataTalk's AI-powered legal technology"
+                        class="img-fluid rounded smaller-image">
                 </div>
                 <div class="col-md-6">
                     <h2>DataTalk: The AI-Powered Legal Assistant</h2>
-                    <p>DataTalk is an advanced AI-powered platform that revolutionizes legal research and document drafting. Our cutting-edge technology seamlessly integrates with your existing workflows, enabling swift adoption and immediate productivity gains. Unlike competitors that require costly custom integrations, DataTalk offers a full-service, end-to-end solution for exceptional legal assistance.</p>
+                    <p>DataTalk is an advanced AI-powered platform that revolutionizes legal research and document
+                        drafting. Our cutting-edge technology seamlessly integrates with your existing workflows,
+                        enabling swift adoption and immediate productivity gains. Unlike competitors that require costly
+                        custom integrations, DataTalk offers a full-service, end-to-end solution for exceptional legal
+                        assistance.</p>
                 </div>
             </div>
         </section>
-        
+
         <section id="values" class="section">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h2>Our Values and Culture</h2>
-                    <p>At DataTalk, we are committed to innovation, excellence, and ethical AI use in the legal field. We believe in sharing our journey and insights through our blog, fostering a culture of collaboration and knowledge-sharing. Our team is driven by a passion for transforming legal practices and a dedication to delivering cutting-edge solutions that make a real difference in legal professionals' lives.</p>
+                    <p>At DataTalk, we are committed to innovation, excellence, and ethical AI use in the legal field.
+                        We believe in sharing our journey and insights through our blog, fostering a culture of
+                        collaboration and knowledge-sharing. Our team is driven by a passion for transforming legal
+                        practices and a dedication to delivering cutting-edge solutions that make a real difference in
+                        legal professionals' lives.</p>
                 </div>
                 <div class="col-md-6 text-center">
                     <img src="./media/scales.svg" alt="Scales of justice" class="img-fluid rounded smaller-image">
                 </div>
             </div>
         </section>
-        
+
         <section id="clients" class="section bg-light">
             <div class="container">
                 <h2 class="text-center">Trusted by Industry Leaders</h2>
-                <p class="text-center">Although DataTalk is a young company, our founders bring a wealth of experience and a proven track record of success. In their previous venture, they had the privilege of serving renowned global brands and esteemed customers across various industries.</p>
+                <p class="text-center">Although DataTalk is a young company, our founders bring a wealth of experience
+                    and a proven track record of success. In their previous venture, they had the privilege of serving
+                    renowned global brands and esteemed customers across various industries.</p>
                 <div class="client-logos">
                     <img src="/media/adidas.svg" alt="Adidas logo" class="img-fluid">
                     <img src="/media/kpmg.svg" alt="KPMG logo" class="img-fluid">
@@ -170,25 +214,27 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="section text-center">
             <h2>Ready to Transform Your Legal Practice?</h2>
             <p>Experience the power of AI-driven legal assistance firsthand.</p>
             <a href="mailto:mail@datatalk.be" class="cta-button">Request a Demo</a>
         </section>
-        
+
         <footer id="contact">
             <div class="contact-info">
                 <a href="mailto:mail@datatalk.be">mail@datatalk.be</a>
-                <a href="tel:+32473576262">+32 473 57 62 62</a>
             </div>
             <div class="legal-links">
-                <a href="/privacy.html">Privacy Policy</a> | 
-                <a href="/terms.html">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a> |
+                <a href="/terms">Terms of Service</a> |
+                <a href="/security">Security Policy</a> |
+                <a href="/eula">EULA</a>
             </div>
         </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

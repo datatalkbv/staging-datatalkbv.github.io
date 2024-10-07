@@ -1,7 +1,7 @@
 # Security Policy
 ## DataTalk BV
 
-**Last Updated: September 10, 2024**
+**Last Updated: October 2, 2024**
 
 ## 1. Introduction
 
